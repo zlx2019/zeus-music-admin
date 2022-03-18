@@ -1,6 +1,7 @@
 <script setup>
-import {ref} from 'vue'
+import {ref,reactive} from 'vue'
 import {defaultHello} from '../api/hello'
+import {get} from '../api/request'
 
 defineProps({
   msg: String
@@ -15,6 +16,14 @@ const sayHello = ()=>{
     content.value = result.data
   })
 }
+
+let names = reactive([])
+const getArr = ()=>{
+  get("/default/testArr")
+  .then(result=>{
+    result.data.forEach(item=> names.push(item))
+  })
+}
 </script>
 
 <template>
@@ -26,6 +35,10 @@ const sayHello = ()=>{
     <br>
     <q-btn color="primary" @click="sayHello()">请求接口</q-btn>
     请求内容: {{content}}
+
+    <br>
+    <q-btn color="secondary" @click="getArr()">请求数组</q-btn>
+    请求数组:{{names}}
 
   </div>
 </template>
