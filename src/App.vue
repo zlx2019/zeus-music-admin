@@ -4,7 +4,9 @@ import Layout from "./page/Layout.vue";
 </script>
 
 <template>
-  <layout/>
+  <div id="app">
+    <router-view/>
+  </div>
 </template>
 
 <style>

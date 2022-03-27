@@ -1,10 +1,10 @@
 <template>
-  这是首页
+  <div>无权限</div>
 </template>
 
 <script>
 export default {
-  name: "Index"
+  name: "403"
 }
 </script>
 

@@ -16,16 +16,13 @@
 
     <!--左边栏内容-->
     <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
-
     </q-drawer>
 
     <!--页面内容-->
     <q-page-container>
       <router-view/>
     </q-page-container>
-
   </q-layout>
-
 </template>
 
 <script>
