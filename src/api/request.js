@@ -1,7 +1,9 @@
 /** 封装的网络请求工具*/
 import axios from "axios"
+import store from '../store'
 
 const baseUrl = import.meta.env.VITE_API_HOST
+// const baseUrl = 'http://127.0.0.1:8080'
 
 /** 设置axios全局配置*/
 axios.defaults.timeout = 10000 //超时时间
@@ -16,6 +18,16 @@ const client = axios.create({
         "Content-Type":'application/json'
     },
     transformRequest: data => JSON.stringify(data),
+})
+
+/** axios 请求拦截器*/
+client.interceptors.request.use(config =>{
+    // 请求前 携带上token
+    const token = store.getters["user/getToken"]
+    if (token){
+        config.headers['Authorization'] = token
+    }
+    return config
 })
 
 

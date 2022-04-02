@@ -3,8 +3,20 @@
 </template>
 
 <script>
+import {useStore} from 'vuex'
+import {computed} from "vue";
+
 export default {
-  name: "Index"
+  name: "Index",
+  setup(){
+    //use
+    const store = useStore()
+
+
+    return{
+
+    }
+  }
 }
 </script>
 

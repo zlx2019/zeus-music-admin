@@ -5,7 +5,9 @@ import Layout from "./page/Layout.vue";
 
 <template>
   <div id="app">
-    <router-view/>
+    <n-message-provider>
+      <router-view/>
+    </n-message-provider>
   </div>
 </template>
 
